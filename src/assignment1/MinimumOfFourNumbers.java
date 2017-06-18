@@ -20,7 +20,7 @@ public class MinimumOfFourNumbers {
 			}
 		}
 		System.out.println("Mininum of four numbers is: "+minNum);
-
+		sc.close();
 	}
 
 }

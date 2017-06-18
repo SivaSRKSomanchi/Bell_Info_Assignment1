@@ -16,7 +16,7 @@ public class ReverseNumber {
 			n =n/10;			
 		}
 		System.out.println("Reversed Number is: "+sum);
-
+		sc.close();
 	}
 
 }

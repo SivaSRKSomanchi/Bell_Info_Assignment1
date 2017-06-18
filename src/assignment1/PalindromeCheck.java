@@ -23,7 +23,7 @@ public class PalindromeCheck {
 		else{
 			System.out.println("Number is not a PalindromeNumber");	
 		}
-
+		sc.close();
 
 	}
 

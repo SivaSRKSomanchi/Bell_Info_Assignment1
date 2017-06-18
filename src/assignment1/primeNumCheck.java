@@ -23,6 +23,7 @@ public class PrimeNumCheck {
 		else{
 			System.out.println(+n+" is not a prime number.");
 		}
+		sc.close();
 	}
 
 }
