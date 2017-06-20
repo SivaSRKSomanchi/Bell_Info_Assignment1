@@ -20,7 +20,15 @@ public class ArmstrongNum {
 			replica/=10;
 		}
 		
-		double digit = (Math.floor(Math.log10(givenNum))) + 1;
+		
+		System.out.println(digit);
+		
+		/* double digit = (Math.floor(Math.log10(givenNum))) + 1; 
+		 * OR
+		 * double digit = (int)Math.log10(givenNum)+1;
+		 * NUM OF DIGITS OF GIVEN NUMBER -DIFFERENT WAYS */
+		
+		
 		replica = givenNum;
 		
 		while(givenNum!=0){
