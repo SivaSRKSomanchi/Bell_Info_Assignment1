@@ -21,7 +21,7 @@ public class ArmstrongNum {
 		}
 		
 		
-		System.out.println(digit);
+		System.out.println(digits);
 		
 		/* double digit = (Math.floor(Math.log10(givenNum))) + 1; 
 		 * OR
@@ -33,7 +33,7 @@ public class ArmstrongNum {
 		
 		while(givenNum!=0){
 			rem=givenNum%10;
-			sum = sum + Math.pow(rem, digit);
+			sum = sum + Math.pow(rem, digits);
 			givenNum =givenNum/10;			
 		}
 		System.out.println();
