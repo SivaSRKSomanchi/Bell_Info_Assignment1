@@ -1,11 +1,11 @@
 package assignment2;
 
-public class DiffererntReturnType implements interface11, interface22 {
-
+public class DiffererntReturnType // implements interface11, interface22 
+{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-	}
+	
 
 	/*
 	 * As the return type in both the interfaces are different, while
@@ -15,16 +15,17 @@ public class DiffererntReturnType implements interface11, interface22 {
 	 * 
 	 * HENCE WE CAN'T OVERRIDE A METHOD WITH SAME NAME AND DIFFERENT RETURN TYPES.
 	 */
-	@Override
-	public String barks() {
-		// TODO Auto-generated method stub
-		return "inside barks, interface2";
-	}
+//	@Override
+//	public String barks() {
+//		// TODO Auto-generated method stub
+//		return "inside barks, interface2";
+//	}
 
 	// public int barks(){
 	// return 1;
 	// }
 
+}
 }
 
 interface interface11 {
