@@ -49,19 +49,19 @@ System.out.println("\n OBSERVE THE NAMES : \nclass assignment2.AbstractStacticBl
 class Normal extends Abstract_StacticBlockDemo {
 	int a;
 
-//	public Normal() {
-//		// TODO Auto-generated constructor stub
-//
-//		System.out.println("Inside CHILD Constructor");
-//		this.a = 10;
-//	}
+	public Normal() {
+		// TODO Auto-generated constructor stub
 
+		System.out.println("Inside CHILD(which extends Abstract class) Constructor");
+		this.a = 10;
+	}
+ 
 	
 	static {
-		System.out.println("Inside CHILD Static Block");
+		System.out.println("Inside CHILD(which extends Abstract class) Static Block");
 	}
 	{
-		System.out.println("Inside CHILD Instance Block");
+		System.out.println("Inside CHILD(which extends Abstract class) Instance Block");
 	}
 
 	public int getAa() {
@@ -75,15 +75,15 @@ abstract class Abstract_StacticBlockDemo {
 	int a;
 
 	public Abstract_StacticBlockDemo() {
-		System.out.println("Inside PARENT Constructor");
+		System.out.println("Inside PARENT(abstract class) Constructor");
 		this.a = 10;
 	}
 
 	static {
-		System.out.println("Inside PARENT Static Block");
+		System.out.println("Inside PARENT(abstract class) Static Block");
 	}
 	{
-		System.out.println("Inside PARENT Instance Block");
+		System.out.println("Inside PARENT(abstract class) Instance Block");
 	}
 
 	public int getAa() {

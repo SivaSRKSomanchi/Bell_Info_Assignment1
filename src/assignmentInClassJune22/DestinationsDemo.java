@@ -7,25 +7,6 @@ public class DestinationsDemo {
 
 	public static void main(String[] args) {
 
-		// Destinations informations
-		// 1st Destination
-		// String[] d1Hotels = {"Hyat","Prestige","Raheja"};
-		// double[] d1Cost = {200.00,350.50,500.60};
-		// int[] d1Days = {3,5,8};
-		// Destinations hydDest = new Destinations("Hyd", "TG",d1Hotels ,d1Cost
-		// ,d1Days);
-		// //2nd Destination
-		// String[] d2Hotels = {"Amaravati","Sagar","Tripta"};
-		// double[] d2Cost = {280.00,550.50,600.60};
-		// int[] d2Days = {2,5,10};
-		// Destinations AmarDest = new Destinations("Amaravati", "AP",d2Hotels
-		// ,d2Cost ,d2Days);
-		// //3rd Destination
-		// String[] d3Hotels = {"Hyatt1","ALLInONE","Extended"};
-		// double[] d3Cost = {210.00,750.50,590.60};
-		// int[] d3Days = {3,5,8};
-		// Destinations goaDest = new Destinations("Goa", "MT",d3Hotels ,d3Cost
-		// ,d3Days);
 		
 		Destinations dest;
 		Scanner input = new Scanner(System.in);
@@ -62,8 +43,11 @@ public class DestinationsDemo {
 			d[i] = dest;
 
 		}
+		for(int j=0;j<d.length;j++){
+			System.out.println(d[j]);
+		}
 
-		System.out.println();
+		
 		//
 		// // Hyd in TG and Pakage Details:
 		// // 1. Hyat - 200 - 3 days package
