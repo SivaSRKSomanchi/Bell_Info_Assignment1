@@ -106,5 +106,9 @@ public class StringMethods {
 		
 		//String in UPPERCASE
 		System.out.println("\nSTRING IN UPPERCASE: "+s.toUpperCase());
+		
+		
+		System.out.println(s.indexOf("j")+s.substring(19, 20));
+		
 	}
 }
