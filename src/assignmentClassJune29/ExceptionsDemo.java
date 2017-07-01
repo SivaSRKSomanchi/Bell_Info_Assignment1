@@ -3,6 +3,7 @@ package assignmentClassJune29;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.YearMonth;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Locale;
@@ -42,26 +43,27 @@ public class ExceptionsDemo {
 		boolean cVV = false;
 		boolean ccNUM = false;
 		boolean ccTYPE = false;
-		boolean dateCHECK = false;
-		
+		boolean dateCHECK_before = false;
+		boolean dateCHECK_after = false;
+
 		Scanner scan = new Scanner(System.in);
-		try{
-		System.out.println("Enter Credit Card Number: ");
-		creditCardNum = scan.next();
-		}catch(InputMismatchException e){
-			System.out.println("Invalid input type of Card Number: "+e);
+		try {
+			System.out.println("Enter Credit Card Number: ");
+			creditCardNum = scan.next();
+		} catch (InputMismatchException e) {
+			System.out.println("Invalid input type of Card Number: " + e);
 		}
-		try{
-		System.out.println("Enter Card Type: ");
-		cardType = scan.next();
-		}catch(InputMismatchException e){
-			System.out.println("Invalid input type of Card Type: "+e);
+		try {
+			System.out.println("Enter Card Type: ");
+			cardType = scan.next();
+		} catch (InputMismatchException e) {
+			System.out.println("Invalid input type of Card Type: " + e);
 		}
-		try{
-		System.out.println("Enter CVV: ");
-		cvv = scan.next();
-		}catch(InputMismatchException e){
-			System.out.println("Invalid input type of CVV Number: "+e);
+		try {
+			System.out.println("Enter CVV: ");
+			cvv = scan.next();
+		} catch (InputMismatchException e) {
+			System.out.println("Invalid input type of CVV Number: " + e);
 		}
 
 		// CVV CHECK
@@ -71,32 +73,34 @@ public class ExceptionsDemo {
 		} else {
 			throw new CvvException("Invalid Card");
 		}
-		
 
 		// CREDIT CARD NUM CHECK
-		System.out.println(ccardNumCheck(creditCardNum));
+		// System.out.println(ccardNumCheck(creditCardNum));
 		ccNUM = ccardNumCheck(creditCardNum);
 		if (ccNUM) {
-			System.out.println("CVV is valid");
+			System.out.println("CREDIT CARD NUMBER is valid");
 		} else {
 			throw new CreditCardNumException("Invalid Card");
 		}
-		
 
 		// CREDIT CARD TYPE CHECK
 		String ccType = creditCardTypeCheck(creditCardNum);
 		ccTYPE = cardType.equalsIgnoreCase(ccType);
 		if (ccTYPE) {
-			System.out.println("Card Type is Valid");
+			System.out.println("CREDIT Card Type is Valid");
 		} else {
 			throw new CardException("Invalid Card");
 		}
-		
 
 		// TAKING DATE INPUT AND CHECKING WITH TODAY'S DATE.
+
+		YearMonth ym = YearMonth.now();
+
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM");
 		Date currentDate = new Date();
+		System.out.println("Date currentDate: " + currentDate);
 		String scb = dateFormat.format(currentDate);
+		System.out.println("String scb: " + scb);
 		dateFormat.setLenient(false);
 		System.out.println("/nEnter Four Digits for year: ");
 		int year = scan.nextInt();
@@ -105,44 +109,33 @@ public class ExceptionsDemo {
 		System.out.println("Enter two Digits for day: ");
 		int d = scan.nextInt();
 		@SuppressWarnings("deprecation")
-		
 		Date userEnteredDate1 = new Date(year, month, d) {
 		};
+		// System.out.println("Date userEnteredDate1: "+userEnteredDate1);
+		// String userEntered = dateFormat.format(userEnteredDate1);
+		// System.out.println("String userEntered: "+userEntered);
 		// DATE CHECK
-		System.out
-				.println("DateCheck: " + currentDate.before(userEnteredDate1));
-		dateCHECK = currentDate.before(userEnteredDate1);
-		if (dateCHECK) {
-			System.out.println("Card Type is Valid");
+		dateCHECK_before = currentDate.before(userEnteredDate1);
+		dateCHECK_after = currentDate.after(userEnteredDate1);
+		System.out.println("dateCHECK_before: " + dateCHECK_before);
+		System.out.println("dateCHECK_after: " + dateCHECK_after);
+
+		if (dateCHECK_before) {
+			System.out.println("This is a Valid");
+		} else if (dateCHECK_after) {
+			throw new CreditCardDateException(
+					"Credit Card Entered is yet to come. Please check and enter.");
 		} else {
-			throw new CreditCardDateException("Invalid Card");
+			throw new CreditCardDateException("Card Date Expired");
 		}
-
-		// String cardDate = (year+"/"+month+"/"+d);
-		// String todayDate = dateFormat.format(date);
-		// System.out.println(cardDate + (dateFormat.format(date)));
-		// System.out.println(toda);
-		// DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-		// System.out
-		// .println("Enter date and time in the format yyyy-MM-ddTHH:mm");
-		// Date date = null;
-		// System.out.println("For example, it is now "
-		// + format.format(new Date()));
-		//
-		// while (date == null) {
-		// String line = scan.nextLine();
-		// try {
-		// date = format.parse(line);
-		// } catch (ParseException e) {
-		// System.out
-		// .println("Sorry, that's not valid. Please try again.");
-		// }
-		// }
-
 	}
 
-	private static String creditCardTypeCheck(String cString) {
+	private static String creditCardTypeCheck(String cString) throws CardException{
 		int len = cString.length();
+		if(cString.length()<16)
+		{
+			throw new CardException("Please enter valid number of digits exactly");
+		}
 		String str = "";
 		if (cString.startsWith("5") && len == 16) {
 			str += "MasterCard";
@@ -161,8 +154,8 @@ public class ExceptionsDemo {
 	}
 
 	private static boolean cvvCheck(String cvv, String cardType,
-			String creditCardNum) {
-		if ((cvv.length() == 4) && cardType.equalsIgnoreCase("visa")
+			String creditCardNum) throws CvvException{
+		if ((cvv.length() == 4) && cardType.equalsIgnoreCase("amex")
 				&& creditCardNum.length() == 15) {
 			return true;
 		} else if ((cvv.length() == 3)) {
@@ -173,19 +166,31 @@ public class ExceptionsDemo {
 
 	}
 
-	private static boolean ccardNumCheck(String cardNumber) {
+	private static boolean ccardNumCheck(String cardNumber) throws CreditCardNumException{
+		if(cardNumber.length()<16 ||cardNumber.length()<15 )
+		{
+			throw new CardException("Please enter valid number of digits exactly");
+		}
 		int sum = 0;
-		boolean alternate = false;
-		for (int i = cardNumber.length() - 1; i >= 0; i--) {
-			int n = Integer.parseInt(cardNumber.substring(i, i + 1));
-			if (alternate) {
-				n *= 2;
-				if (n > 9) {
-					n = (n % 10) + 1;
+		try {
+			boolean alternate = false;
+			for (int i = cardNumber.length() - 1; i >= 0; i--) {
+				int n = Integer.parseInt(cardNumber.substring(i, i + 1));
+				// throw new CreditCardNumException("Invalid Digits Entered");
+				if (alternate) {
+					n *= 2;
+					if (n > 9) {
+						n = (n % 10) + 1;
+					}
 				}
+				sum += n;
+				alternate = !alternate;
 			}
-			sum += n;
-			alternate = !alternate;
+
+		} catch (NumberFormatException e) {
+			System.out
+					.println("Invalid Digits Entered. Please enter integer values."
+							+ e);
 		}
 		return (sum % 10 == 0);
 	}
