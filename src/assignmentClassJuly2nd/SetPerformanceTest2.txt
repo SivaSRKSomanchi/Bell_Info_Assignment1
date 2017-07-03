@@ -1,0 +1,15 @@
+HashSet vs. TreeSet vs. LinkedHashSet
+Performance Testing..
+HashSet gives better performance than the LinkedHashSet and TreeSet.
+O(1) for insertion, removal and retrieval operations.
+Insertion Time of class java.util.HashSet is 2 MilliSeconds
+
+TreeSet gives less performance than the HashSet and LinkedHashSet as it has to 
+sort the elements after each insertion and removal operations.
+O(log(n)) for insertion, removal and retrieval operations.
+Insertion Time of class java.util.TreeSet is 4 MilliSeconds
+
+The performance of LinkedHashSet is almost similar to HashSet. 
+But slightly slow as it maintains LinkedList internally to maintain the insertion order of elements.
+Here also, O(1) for insertion, removal and retrieval operations.
+Insertion Time of class java.util.LinkedHashSet is 1 MilliSeconds
