@@ -1,6 +1,7 @@
 package assignmentClassJuly2nd;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.TreeSet;
@@ -22,6 +23,8 @@ public class PerformanceTest2 {
 				.println("O(1) for insertion, removal and retrieval operations.");
 		Random r = new Random();
 		int index;// = r.nextInt(100000);
+		
+		// Insertion in HashSet
 		long start = System.currentTimeMillis();
 		for (int i = 0; i < 2000; i++) {
 			index = r.nextInt(100000);
@@ -29,7 +32,27 @@ public class PerformanceTest2 {
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("Insertion Time of " + hash.getClass() + " is "
-				+ ((end - start)) + " MilliSeconds");
+				+ ((end - start)*1000000) + " NanoSeconds");
+		
+		//Search/Retrieval in HashSet
+//		start = System.currentTimeMillis();
+//		Iterator<Laptop> iterator = hash.iterator();
+//		while (iterator.hasNext()) {
+//			System.out.print(iterator.next() + " ");
+//		end = System.currentTimeMillis();
+//		System.out.println("Search Time of " + hash.getClass() + " is "
+//				+ ((end - start)) + " MilliSeconds");
+		
+//		//Removal of element in HashSet
+//		start = System.currentTimeMillis();
+//		for (int i = 0; i < 2000; i++) {
+//			index = r.nextInt(100000);
+//			hash.remove(o);
+//		}
+//		end = System.currentTimeMillis();
+//		System.out.println("Removal Time of " + hash.getClass() + " is "
+//				+ ((end - start)*1000000) + " NanoSeconds");
+//		
 
 		System.out
 				.println("\nTreeSet gives less performance than the HashSet and LinkedHashSet as it has to \nsort the elements after each insertion and removal operations.");
@@ -42,8 +65,13 @@ public class PerformanceTest2 {
 		}
 		end = System.currentTimeMillis();
 		System.out.println("Insertion Time of " + tree.getClass() + " is "
-				+ ((end - start)) + " MilliSeconds");
+				+ ((end - start)*1000000) + " NanoSeconds");
 
+		
+		
+		
+		
+		
 		System.out
 				.println("\nThe performance of LinkedHashSet is almost similar to HashSet. \nBut slightly slow as it maintains LinkedList internally to maintain the insertion order of elements.");
 		System.out
@@ -55,10 +83,11 @@ public class PerformanceTest2 {
 		}
 		end = System.currentTimeMillis();
 		System.out.println("Insertion Time of " + linkedHash.getClass()
-				+ " is " + ((end - start)) + " MilliSeconds");
+				+ " is " + ((end - start)*1000000) + " NanoSeconds");
 	}
 
 }
+
 
 class Laptop implements Comparable<Laptop> {
 	int screenSize;
