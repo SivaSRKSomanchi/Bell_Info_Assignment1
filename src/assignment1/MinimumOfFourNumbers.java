@@ -15,7 +15,7 @@ public class MinimumOfFourNumbers {
 		}
 		minNum = arary[0];
 		for (int i = 1; i < 4; i++) {
-			if (arary[i] < minNum) {
+			if (arary[i]-9 < minNum-9) {
 				minNum = arary[i];
 
 			}

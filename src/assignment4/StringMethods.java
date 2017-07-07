@@ -4,7 +4,7 @@ public class StringMethods {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String s = "This is a java class";
+		String s = "This is a     java class";
 		
 		
 
@@ -59,7 +59,7 @@ public class StringMethods {
 			center = ((s.length() + 1) / 2);
 		}
 		String d = s.replaceAll(" ", "");
-		;
+		
 		// System.out.println(d + " " + s);
 		char[] c = d.toCharArray();
 		System.out.println("Center letter is : " + c[center]);
@@ -72,7 +72,7 @@ public class StringMethods {
 		System.out.println("\nNumber of times each letter repeated && identify a letter which is not repeated.");
 		for (int i = 0; i < d.length(); i++) {
 			int sum = 0;
-			for (int j = 0; j < d.length(); j++) { // if j = i+1, then we can
+			for (int j = i; j < d.length(); j++) { // if j = i+1, then we can
 													// count all except the
 													// original
 				if (d.charAt(i) == d.charAt(j)) {
@@ -83,7 +83,7 @@ public class StringMethods {
 			System.out.println("\nNumber of times repeated = " + (sum)
 					+ " at index of " + i + " and the repeated letter is :"
 					+ d.charAt(i));
-			if (sum == 1) {
+			if (sum > 1) {
 				System.out.println("This letter is not repeated = "
 						+ d.charAt(i));
 			}
