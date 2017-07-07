@@ -83,7 +83,7 @@ public class StringMethods {
 			System.out.println("\nNumber of times repeated = " + (sum)
 					+ " at index of " + i + " and the repeated letter is :"
 					+ d.charAt(i));
-			if (sum > 1) {
+			if (sum == 1) {
 				System.out.println("This letter is not repeated = "
 						+ d.charAt(i));
 			}
