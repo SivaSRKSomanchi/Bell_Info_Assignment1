@@ -8,7 +8,7 @@ public class DuplicateCharacters {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String s = "SivaRammn   ";
+		String s = "Irfaannn";
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 		char[] letters = s.toCharArray();
 		for(char c:letters){

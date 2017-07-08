@@ -142,7 +142,7 @@ public class HealthInformation {
 			String specializatioin) {
 		int a = zip;
 		Set<Hospital> keys = hospital.keySet();
-		System.out.println("KEys in::: " + keys);
+		//System.out.println("KEys in::: " + keys);
 		Hospital hospitalNearBy = null;
 		for (Hospital h : keys) {
 			if (Math.abs(zip - h.hospitalAddress.zipCode) < a) {
