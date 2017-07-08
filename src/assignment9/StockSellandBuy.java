@@ -25,7 +25,7 @@ public class StockSellandBuy {
 		for (int i = 0; i < n; i++) {
 			System.out.println(stockValues[i]);
 		}
-		System.out.println(maxProfit5(stockValues));
+		System.out.print("Maximum Gain is : "+maxProfit5(stockValues));
 //		double min = stockValues[0];
 //		int k = 0;
 //		for (int i = 0; i < n; i++) {
@@ -56,14 +56,17 @@ public class StockSellandBuy {
 	    if(array == null || array.length < 2){
 	        return 0;
 	    } 
-	    int maxProfit = 0;
+	    int max = 0,index1=0,index2=0;
 	    for(int i = 0; i < array.length-1; i++){
 	        for(int j = i+1; j < array.length; j++){
-	            if(array[j] > array[i] && maxProfit < array[j] - array[i]){
-	                maxProfit = array[j] - array[i];
+	            if(array[j] > array[i] && max < array[j] - array[i]){
+	                max = array[j] - array[i];
+	                index1=i;
+	                index2=j;
 	            }
 	        }
 	    }
-	    return maxProfit;
+	    System.out.println("If you buy at "+index1+" and sell at "+index2+" the ");
+	    return max;
 	}
 }
