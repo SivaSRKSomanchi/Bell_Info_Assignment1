@@ -27,10 +27,40 @@ public class AbstractStacticBlockDemo {
 		Normal n = new Normal();
 		
 		System.out.println("\n Discussion about /'instance of abstaract class/' ");
+		
+		
 		Abstract_StacticBlockDemo abs = new Abstract_StacticBlockDemo() {
+
+			@Override
+			public int getAa() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public int getB() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
 		};
+		
+		
 		Abstract_StacticBlockDemo abs1 = new Abstract_StacticBlockDemo() {
+
+			@Override
+			public int getAa() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public int getB() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
 		};
+		
+		
 		System.out.print("\nLet's compare both the reference variables /'abs == abs1/' : " );
 		System.out.println(abs == abs1);
 		System.out.println("\n /'abs/' is the instance of ANNONYM1OUS CLASS named:"
@@ -63,10 +93,20 @@ class Normal extends Abstract_StacticBlockDemo {
 	{
 		System.out.println("Inside CHILD(which extends Abstract class) Instance Block");
 	}
-
+	@Override
 	public int getAa() {
+		// TODO Auto-generated method stub
 		return a;
 	}
+	@Override
+	public int getB() {
+		// TODO Auto-generated method stub
+		return a;
+	}
+
+	
+
+	
 
 }
 
@@ -78,7 +118,6 @@ abstract class Abstract_StacticBlockDemo {
 		System.out.println("Inside PARENT(abstract class) Constructor");
 		this.a = 10;
 	}
-
 	static {
 		System.out.println("Inside PARENT(abstract class) Static Block");
 	}
@@ -86,7 +125,6 @@ abstract class Abstract_StacticBlockDemo {
 		System.out.println("Inside PARENT(abstract class) Instance Block");
 	}
 
-	public int getAa() {
-		return a;
-	}
+	public abstract int getAa();
+	public abstract int getB();
 }
